@@ -1,4 +1,4 @@
-function Persona(nombre,apellido,ci,estado,sexo) {
+function Persona(nombre, apellido, ci, estado, sexo) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.ci = ci;
@@ -19,24 +19,24 @@ function Arrendatario(ci, nombre, apellido, estado, sexo, garantia) {
     this.garantia = garantia;
 }
 
-function Inmuebles (id,tipo,precio,metros,dormitorios,garage,jardin,anio,propietario){
-    this.id=id;
-    this.tipo=tipo;
-    this.precio=precio;
-    this.metros=metros;
-    this.dormitorios=dormitorios;
-    this.garage=garage;
-    this.jardin=jardin;
-    this.anio=anio;
-    this.propietario=propietario;
+function Inmuebles(id, tipo, precio, metros, dormitorios, garage, jardin, anio, propietario) {
+    this.id = id;
+    this.tipo = tipo;
+    this.precio = precio;
+    this.metros = metros;
+    this.dormitorios = dormitorios;
+    this.garage = garage;
+    this.jardin = jardin;
+    this.anio = anio;
+    this.propietario = propietario;
 }
 
 //dirección del servidor
-var urlServer = "http://127.0.0.1:8887/C:\Users\Juan\Desktop\Lab1\LAB1\Datos";
-var archivoAlquileres = urlServer + "alquileres.csv";
-var archivoArrendatarios = urlServer + "arrendatarios.csv";
-var archivoInmuebles = urlServer + "inmuebles.csv";
-var archivoPropietarios = urlServer + "propietarios.csv";
+var urlArchivo = "http://127.0.0.1:8887/C:\Users\Juan\Desktop\Lab1\LAB1\Datos";
+var archivoAlquileres = urlArchivo + "alquileres.csv";
+var archivoArrendatarios = urlArchivo + "arrendatarios.csv";
+var archivoInmuebles = urlArchivo + "inmuebles.csv";
+var archivoPropietarios = urlArchivo + "propietarios.csv";
 
 //console.log(archivoAlquileres);
 var arrayAlquileres = [];
@@ -70,42 +70,39 @@ function LeerArchivo(url, col, separador) {
 }
 
 LeerArchivo(archivoAlquileres, alquileres, ";", "ALQUILERES");
-
-
 LeerArchivo(archivoArrendatarios, arrendatarios, ";");
+LeerArchivo(archivoInmuebles, inmuebles, ";", "INMUEBLES"); { // primera consulta 
 
-LeerArchivo(archivoInmuebles, inmuebles, ";", "INMUEBLES");{ // primera consulta 
-    
-     
+
     // var valores = Object.Values(archivoInmuebles);
 
     // for (var i = 1; i < valores.lenght; i++){if  
-     //  valores < 10000 [valores[i]]; 
-     //  }};
+    //  valores < 10000 [valores[i]]; 
+    //  }};
 
-LeerArchivo(archivoPropietarios, propietarios, ";", "PROPIETARIOS");
+    LeerArchivo(archivoPropietarios, propietarios, ";", "PROPIETARIOS");
 
-var cargarPersonas = function (Personas){ 
-  for (var i = 1; i < valores.length; i++){ 
-    if                       
-}
-
-var cargarAlquileres = function (Alquileres){ 
-  for (var i = 1; i < valores.length; i++){
-}
-///// consulta A
-
-  var valores = Object.Values(archivoInmuebles);
-
-  var cargarInmuebles = function (Inmuebles){ 
-  for (var i = 1; i < valores.length; i++){
-    if (Object.Values.precio[i] < 10000 && Object.Values.metros[i]>60){
-        arrayInmuebles.push([valores]);
+    var cargarPersonas = function (Personas) {
+        for (var i = 1; i < valores.length; i++) {
+        }
     }
-  }
-  console.log(arrayInmuebles);
-  //---------------------------------------------------------------------------
 
-  var cargarArrendatarios = function (Arrendatarios){ 
-  for (var i = 1; i < valores.length; i++){
-  }
+    var cargarAlquileres = function (Alquileres) {
+        for (var i = 1; i < valores.length; i++) {
+        }
+        ///// consulta A
+
+        var valores = Object.Values(archivoInmuebles);
+
+        var cargarInmuebles = function (Inmuebles) {
+            for (var i = 1; i < valores.length; i++) {
+                if (Object.Values.precio[i] < 10000 && Object.Values.metros[i] > 60) {
+                    arrayInmuebles.push([valores]);
+                }
+            }
+            console.log(arrayInmuebles);
+            //---------------------------------------------------------------------------
+
+            var cargarArrendatarios = function (Arrendatarios) {
+                for (var i = 1; i < valores.length; i++) {
+                }
