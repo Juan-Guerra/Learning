@@ -73,69 +73,150 @@ function Apartamento(id, precio, metros, dormitorios, garage, anio, cipropietari
 
 
 //dirección del servidor
-var urlServer = "http://127.0.0.1:8887/LAB1/HsH/files/";
-var archivoAlquileres = urlServer + "alquileres.csv";
-var archivoArrendatarios = urlServer + "arrendatarios.csv";
-var archivoInmuebles = urlServer + "inmuebles.csv";
-var archivoPropietarios = urlServer + "propietarios.csv";
+var urlArchivo = "http://127.0.0.1:8887/LAB1/HsH/files/";
+var archivoAlquileres = urlArchivo + "alquileres.csv";
+var archivoArrendatarios = urlArchivo + "arrendatarios.csv";
+var archivoInmuebles = urlArchivo + "inmuebles.csv";
+var archivoPropietarios = urlArchivo + "propietarios.csv";
 
-//console.log(archivoAlquileres);
+// console.log(urlArchivo);
+// console.log(urlArchivo + "alquileres");
+
+////console.log(archivoAlquileres);
 var alquileres = [];
 var casas = [];
 var apartamentos = [];
 var arrendatarios = [];
 var propietarios = [];
 
-function LeerArchivo(url, separador) {
 
-    $.ajax({
-        url: url,
-        dataType: "text",
-        success: function (data) {
-            var lineas = data.split("\r");
-            var cabezera = lineas[0];
 
-            for (var i = 1; i < lineas.length; i++) {
-                var valores = lineas[i].split(";");
-                var cab = cabezera.split(";");
 
-                var Objeto = new object();
 
-                for (var j = 0; j < cab.length; j++) {
-                    console.log(valores[1]);
 
+
+
+
+function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leerdatos" (variable urlarchivo, punto y coma, funcion a inyectar)
+    $.ajax({ //llamada a ajax
+        url: urlArchivo, // key = url : variable urlachivo a leer
+        dataType: "text", //tipo de datos "texto"
+        success: function (hola) { //"en caso de todo "ok" dentro de "hola" almacena el contenido del "archivo")
+            
+            var filas= hola.split("\r");  //va cortando fila a fila
+            var cabezal = filas[0]; //cada linea que guarda "filas" es un string
+            var cab = cabezal.split(puntocoma);// array con los items del cabezal
+            var coleccion = [];
+
+            for (var i = 1 ; i < filas.length; i++) // recorriendo filas
+            {  
+                console.log("------");
+                var datos = filas[i].split(puntocoma); // array con los items de cada fila *
+                var objprueba = new Object();
+                
+                for (var u = 0; u < cab.length; u++){ // recorriendo columnas en cada fila
+                    var llave = cab[u];                    
+                    var valor = datos[u];
+                     
+                     objprueba[llave]=valor; 
+                     //console.log(objprueba);
+
+
+                    //console.log(llave+ ":" +valor);
                 }
+
+                   coleccion.push(objprueba); 
+                           
+              //console.log(filas[i]);
+              
+               
+              //console.log(datos);
             }
+             // console.log(cabezal);
+              //console.log(cab);
+           //console.log(cabezal);
+           console.log(coleccion);
+           funcioninyeccion(coleccion);
         }
+
+
     });
 }
+leerdatos(archivoArrendatarios,";",cargarArrendatarios);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function LeerArchivo(url, separador) {
+
+//     $.ajax({
+//         url: url,
+//         dataType: "text",
+//         success: function (data) {
+//             var lineas = data.split("\r");
+//             var cabezera = lineas[0];
+
+//             for (var i = 1; i < lineas.length; i++) {
+//                 var valores = lineas[i].split(";");
+//                 var cab = cabezera.split(";");
+
+//                 var Objeto = new object();
+
+//                 for (var j = 0; j < cab.length; j++) {
+//                     //console.log(valores[1]);
+
+//                 }
+//             }
+//         }
+//     });
+// }
 
 
 
 
 function consulta() {
-    console.log("--------- PROPIETARIOS ---------")
-    // console.log(propietarios)
+    //console.log("--------- PROPIETARIOS ---------")
+    // //console.log(propietarios)
     for (var i = 0; i < propietarios.length; i++) {
-        console.log(propietarios[i])
+        //console.log(propietarios[i])
     }
 
     console.log("--------- ARRENDATARIOS ---------")
-    // console.log(propietarios)
+    // //console.log(propietarios)
     for (var i = 0; i < arrendatarios.length; i++) {
         console.log(arrendatarios[i])
     }
 
-    console.log("--------- APARTAMENTOS ---------")
-    // console.log(propietarios)
+    //console.log("--------- APARTAMENTOS ---------")
+    // //console.log(propietarios)
     for (var i = 0; i < apartamentos.length; i++) {
-        console.log(apartamentos[i])
+        //console.log(apartamentos[i])
     }
 
-    console.log("--------- CASAS ---------")
-    // console.log(propietarios)
+    //console.log("--------- CASAS ---------")
+    // //console.log(propietarios)
     for (var i = 0; i < casas.length; i++) {
-        console.log(casas[i])
+        //console.log(casas[i])
     }
 
 }
@@ -159,17 +240,17 @@ var cargarPropietarios = function (lista) {
 
 
 var cargarInmuebles = function (lista) {
-    // console.log(lista);
+    // //console.log(lista);
 
     var atributos = ["id", "precio", "metros", "dormitorios", "garage", "cipropietario", "jardin"];
 
     for (var i = 0; i < lista.length; i++) {
         if (lista[i].tipo == "CASA") {
-            // console.log(lista[i])
+            // //console.log(lista[i])
             var valores = [];
 
             for (var j = 0; j < atributos.length; j++) {
-                //console.log(atributos[j] + ": " + lista[i][atributos[j]])
+                ////console.log(atributos[j] + ": " + lista[i][atributos[j]])
                 valores.push(lista[i][atributos[j]]);
             }
             var casaLinda = new Casa(...valores)
@@ -182,11 +263,11 @@ var cargarInmuebles = function (lista) {
 
     for (var i = 0; i < lista.length; i++) {
         if (lista[i].tipo == "APARTAMENTO") {
-            // console.log(lista[i])
+            // //console.log(lista[i])
             var valores = [];
 
             for (var j = 0; j < atributos.length; j++) {
-                //console.log(atributos[j] + ": " + lista[i][atributos[j]])
+                ////console.log(atributos[j] + ": " + lista[i][atributos[j]])
                 valores.push(lista[i][atributos[j]]);
             }
             var apartamentoLindo = new Apartamento(...valores)
@@ -198,17 +279,17 @@ var cargarInmuebles = function (lista) {
 
 
 function cargarAlquileres(lista) {
-    //  console.log(lista);
+    //  //console.log(lista);
 
     for (var i = 0; i < lista.length; i++) {
-         console.log(lista[i])
+        //console.log(lista[i])
         var idinmueble = lista[i].idinmueble;
         var inmu = [];
-        // console.log(idinmueble);
+        // //console.log(idinmueble);
         for (var j = 0; j < apartamentos.length; j++) {
-            if (apartamentos[j].id = idinmueble){
-                // console.log(apartamentos[j])
-                
+            if (apartamentos[j].id = idinmueble) {
+                // //console.log(apartamentos[j])
+
             }
         }
 
@@ -234,16 +315,16 @@ function cargador(url, separador, funcion) {
                 col.push(Objeto);
             }
             funcion(col);
-            // console.log(col)
+            // //console.log(col)
         }
     });
 }
 
 
-cargador(archivoArrendatarios, ";", cargarArrendatarios);
-cargador(archivoPropietarios, ";", cargarPropietarios);
-cargador(archivoInmuebles, ";", cargarInmuebles);
-cargador(archivoAlquileres, ";", cargarAlquileres);
+//cargador(archivoArrendatarios, ";", cargarArrendatarios);
+// cargador(archivoPropietarios, ";", cargarPropietarios);
+// cargador(archivoInmuebles, ";", cargarInmuebles);
+// cargador(archivoAlquileres, ";", cargarAlquileres);
 
 // LeerArchivo(archivoAlquileres, alquileres, ";", "ALQUILERES");
 // LeerArchivo(archivoArrendatarios, arrendatarios, ";");
