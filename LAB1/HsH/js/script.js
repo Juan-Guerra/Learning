@@ -91,10 +91,13 @@ var propietarios = [];
 
 
 
-
-
-
-
+var cargarArrendatarios = function (lista) {
+    for (var i = 0; i < lista.length; i++) {
+        var valores = Object.values(lista[i]);
+        var arrendatarioLindo = new Arrendatario(...valores)
+        arrendatarios.push(arrendatarioLindo)
+    }
+}
 
 
 function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leerdatos" (variable urlarchivo, punto y coma, funcion a inyectar)
@@ -120,16 +123,11 @@ function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leer
                      
                      objprueba[llave]=valor; 
                      //console.log(objprueba);
-
-
                     //console.log(llave+ ":" +valor);
                 }
-
                    coleccion.push(objprueba); 
                            
               //console.log(filas[i]);
-              
-               
               //console.log(datos);
             }
              // console.log(cabezal);
@@ -222,13 +220,7 @@ function consulta() {
 }
 
 
-var cargarArrendatarios = function (lista) {
-    for (var i = 0; i < lista.length; i++) {
-        var valores = Object.values(lista[i]);
-        var arrendatarioLindo = new Arrendatario(...valores)
-        arrendatarios.push(arrendatarioLindo)
-    }
-}
+
 
 var cargarPropietarios = function (lista) {
     for (var i = 0; i < lista.length; i++) {
