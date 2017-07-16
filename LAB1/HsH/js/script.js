@@ -339,7 +339,7 @@ var cargarInmuebles = function (lista) {
             casas.push(casaLinda)
         }
     }
->>>>>>> 09f4e511cf69713d55bae9af728b3abbd99f92a7
+}
 
 
 
