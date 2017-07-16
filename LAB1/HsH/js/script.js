@@ -127,6 +127,7 @@ var cargarInmuebles = function (lista) {
     
     }
 
+
     var atributos = ["id", "precio", "metros", "dormitorios", "garage", "anio", "cipropietario"];
 
     for (var i = 0; i < lista.length; i++) {
@@ -200,16 +201,11 @@ function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leer
                      
                      objprueba[llave]=valor; 
                      //console.log(objprueba);
-
-
                     //console.log(llave+ ":" +valor);
                 }
-
                    coleccion.push(objprueba); 
                            
               //console.log(filas[i]);
-              
-               
               //console.log(datos);
             }
              // console.log(cabezal);
@@ -312,13 +308,38 @@ function consulta() {
 }
 
 
-/*var cargarArrendatarios = function (lista) {  
+
+
+
+
+var cargarPropietarios = function (lista) {
     for (var i = 0; i < lista.length; i++) {
         var valores = Object.values(lista[i]);
-        var arrendatarioLindo = new Arrendatario(...valores)
-        arrendatarios.push(arrendatarioLindo)
+        var propietarioLindo = new Propietario(...valores)
+        propietarios.push(propietarioLindo);
     }
-}*/
+}
+
+
+var cargarInmuebles = function (lista) {
+    // //console.log(lista);
+
+    var atributos = ["id", "precio", "metros", "dormitorios", "garage", "cipropietario", "jardin"];
+
+    for (var i = 0; i < lista.length; i++) {
+        if (lista[i].tipo == "CASA") {
+            // //console.log(lista[i])
+            var valores = [];
+
+            for (var j = 0; j < atributos.length; j++) {
+                ////console.log(atributos[j] + ": " + lista[i][atributos[j]])
+                valores.push(lista[i][atributos[j]]);
+            }
+            var casaLinda = new Casa(...valores)
+            casas.push(casaLinda)
+        }
+    }
+>>>>>>> 09f4e511cf69713d55bae9af728b3abbd99f92a7
 
 
 
