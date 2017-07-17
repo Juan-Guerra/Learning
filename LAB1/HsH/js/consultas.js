@@ -15,7 +15,7 @@ function cargarTabla(sheison, caption) {
         <head>` + th + `</thead>
         <tbody>`+ td + `</tbody>
     `
-    console.log(tabla)
+    // console.log(tabla)
     $(".table").html(tabla);
 
 
@@ -35,7 +35,33 @@ function cargarTabla(sheison, caption) {
     }
 }
 
+
+function cargarTablaPro(sheisonPro, caption) {
+    var coleccion = [];
+    var valores = ["id", "ci", "dia", "mes", "anio", "dia", "mes", "anio"];
+
+
+    for (var i = 0; i < sheisonPro.length; i++) {
+        var keys = Object.keys(sheisonPro[i]);
+
+        console.log(keys)
+
+        for (var j = 0; j < keys.length; j++) {
+            console.log(sheisonPro[i][keys[j]]);
+
+
+        }
+    }
+}
+
+
+
 //consulas GENERALES
+function consultaAlquileres() {
+
+    cargarTablaPro(alquileres, "Lista de Alquileres");
+}
+
 function consultaPropietarios() {
     cargarTabla(propietarios, "Lista de Propietarios");
 }
@@ -78,7 +104,7 @@ function consulta5() {
 
     for (var i = 0; i < inmuebles.length; i++) {
         for (var j = 0; j < inmuebles[i].length; j++) {
-            
+
             var metros = inmuebles[i][j].metros;
             var precio = inmuebles[i][j].precio;
 

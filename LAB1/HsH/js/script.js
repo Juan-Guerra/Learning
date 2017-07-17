@@ -65,31 +65,20 @@ function Apartamento(id, precio, metros, dormitorios, garage, anio, cipropietari
     this.garage = garage;
     this.anio = anio;
     this.cipropietario = cipropietario;
-    this.alquileres=alquileres;
 }
 
-function Alquileres(id) {
-    this.inmueble = id;
+function Alquileres(inmueble, arrendatario, fechaInicio, fechaFin) {
+    this.inmueble = inmueble;
+    this.arrendatario = arrendatario;
+    this.fechaInicio = fechaInicio;
+    this.fechaFin = fechaFin;
 }
 
-function fechainicio(dia,mes,anio){
-		this.dia=dia;
-		this.mes=mes;
-		this.anio=anio;
+function Fecha(dia, mes, anio) {
+    this.dia = dia;
+    this.mes = mes;
+    this.anio = anio;
 }
-
-
-
-/*function Alquileres(idinmueble;ciarrendatario;fechaInicio;fechaFin) {
-    this.inmueble = idinmueble;
-    this.ciarrendatario = ciarrendatario;
-    this.fechaInicio = fechainicio;
-    this.fechaFin = fechafin;
-    
-}*/
-
-    
-
 
 
 
@@ -101,10 +90,7 @@ var archivoArrendatarios = urlArchivo + "arrendatarios.csv";
 var archivoInmuebles = urlArchivo + "inmuebles.csv";
 var archivoPropietarios = urlArchivo + "propietarios.csv";
 
-// console.log(urlArchivo);
-// console.log(urlArchivo + "alquileres");
 
-////console.log(archivoAlquileres);
 var alquileres = [];
 var casas = [];
 var apartamentos = [];
@@ -132,17 +118,14 @@ var cargarPropietarios = function (lista) {
 }
 
 var cargarInmuebles = function (lista) {
-    // //console.log(lista);
 
     var atributos = ["id", "precio", "metros", "dormitorios", "garage", "cipropietario", "jardin"];
 
     for (var i = 0; i < lista.length; i++) {
         if (lista[i].tipo == "CASA") {
-            // //console.log(lista[i])
             var valores = [];
 
             for (var j = 0; j < atributos.length; j++) {
-                ////console.log(atributos[j] + ": " + lista[i][atributos[j]])
                 valores.push(lista[i][atributos[j]]);
             }
             var casaLinda = new Casa(...valores)
@@ -156,21 +139,16 @@ var cargarInmuebles = function (lista) {
 
     for (var i = 0; i < lista.length; i++) {
         if (lista[i].tipo == "APARTAMENTO") {
-            //console.log(lista[i])
             var valores = [];
 
             for (var j = 0; j < atributos.length; j++) {
-                //console.log(atributos[j] + ": " + lista[i][atributos[j]])
                 valores.push(lista[i][atributos[j]]);
             }
             var apartamentoLindo = new Apartamento(...valores)
+
             apartamentos.push(apartamentoLindo)
         }
     }
-    // console.log(apartamentos)
-    // for (var t = 0; t<apartamentos.length; t++){
-    //     console.log(apartamentos[t].id)
-    // }
 }
 
 
@@ -178,105 +156,72 @@ var cargarInmuebles = function (lista) {
 
 function cargarAlquileres(lista) { //esta funcion cargara TODOS los alquileres y debera devolver un array con los objetos
 
-    for (var i = 0; i < lista.length; i++) { // este FOR creara la variable "o" incrementando 
-        var idmm = lista[i].idinmueble.split("\n");
-        var idm = idmm[1];
 
+    for (var i = 0; i < lista.length; i++) {
+        var datos = [];
+
+        var idInmueble = 0;
+        var ciarrendatario = 0;
+        var fechaInicio = "";
+        var fechaFin = "";
+
+        var idm = lista[i].idinmueble.split("\n");
+        var idInmueble = idm[1];
+
+        var cia = lista[i].ciarrendatario.split(";");
+        ciarrendatario = cia;
+
+        var fecI = lista[i].fechaInicio;
+        fechaInicio = fecI;
+
+        var fecF = lista[i].fechaFin;
+        fechaFin = fecF;
+
+
+        //Busca la "idInmueble" en el array de apartamentos 
         for (var j = 0; j < apartamentos.length; j++) {
-            // console.log(idm + " " + apartamentos[j].id);
-            var apart = apartamentos[j].id;
-            if (apart == idm) {
-                // console.log(idm);
-                var obj = apartamentos[j]
-                // console.log(obj)
-                var alquilerLindo = new Alquileres(obj);
-                alquileres.push(alquilerLindo);
-                    
+            var idApartamento = apartamentos[j].id;
+            if (idInmueble == idApartamento) {
+                datos.push(apartamentos[j])
             }
         }
 
-       // -----  COMIENZA EL "BOLAZO JUAN" ----- //
 
-    //--------- ahora ---->  { extraccion de Casas }
-
-    for (var z =0; z < lista.length; z++){
-        var idmcs = lista[z].idinmueble.split("\n");
-        var idmc = idmcs[1];
-
-        for (var h = 0; h < casas.length; h++){
-            var cas = casas[h].id;
-            if (cas == idmc) {
-                console.log(idmc);
-                var obj2 = casas[h]
-
-                var alquilerCasas = new Alquileres(obj2);
-                
-                alquileres.push(alquilerCasas);
-                
-                
-           }
-        }
-    }
-         
-        //---------ahora la CEDULA de Cada Arrendatario ----//      
-
-    for (var r = 0; r < lista.length; r++){    
-        var ceds = lista[r].ciarrendatario.split("\n");
-        var ced = ceds[1];           
-            
-            for (var e = 0 ; e < ciarrendatario.length; e++){
-                var cedula = ciarrendatario[r].id;
-                if (cedula == ceds){
-                var obj3 = ciarrendatario[e]
-
-
-                var cedulaArrendatario = new Alquileres(obj3);
-                
-                ciarrendatario.push(cedulaArrendatario);
-                //console.log();
-                //console.log(ciarrendatario + "--- lista de cedulas de arrendatarios---");
+        //Busca la "idInmueble" en el array de casas 
+        for (var j = 0; j < casas.length; j++) {
+            var idCasas = casas[j].id;
+            if (idInmueble == idCasas) {
+                datos.push(casas[j])
             }
         }
-    }
 
 
+        //ARRENDATARIO    
+        for (var e = 0; e < arrendatarios.length; e++) {
+            var cedula = arrendatarios[e].ci;
 
-    //---- ahora FECHA-INICIO ----//
-        var dia = 
-        function fechaInicio() 
-    
-
-
-
-
-/*for (var w = 0; w < lista.length; w++){
-        var fechain = lista[w].fecha-inicio.split("\n");
-        var fechai = fechain[1];
-
-            for (var q = 0; q < fecha-inicio.length; q++){
-                var fechainc = fecha-inicio[q].id;
-                if (fechainc == fechai){
-                var obj4 = fecha-inicio[q]
-
-                var fechaInicio = [dia,mes,año];
-
-                fecha-inicio.push(fechaInicio);
-                }
+            if (cedula == ciarrendatario) {
+                datos.push(arrendatarios[e]);
             }
+        }
+
+        //FECHA INICIO
+        var fechaFea = fecI.split("/");
+        var fi = new Fecha(...fechaFea);
+
+        datos.push(fi)
+
+        //FECHA FIN
+        var fechaFea = fecF.split("/");
+        var ff = new Fecha(...fechaFea);
+        
+        datos.push(ff)
+
+        var alquilerLindo = new Alquileres(...datos);
+        alquileres.push(alquilerLindo);
     }
 
-// ----ahora FECHA-FIN---- //
-
-    for (var y = 0; y < lista.length; y++){
-        var fechafin = lista[y].fecha-fin
-    }*/
-
-
-
-
-    //console.log(alquil)
-    //console.log(alquileres[1].inmueble.garage)
-    //console.log(alquileres[1].inmueble.jardin)
+}
 
 function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leerdatos" (variable urlarchivo, punto y coma, funcion a inyectar)
     $.ajax({ //llamada a ajax
@@ -291,7 +236,6 @@ function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leer
 
             for (var i = 1; i < filas.length; i++) // recorriendo filas
             {
-                //console.log("------");
                 var datos = filas[i].split(puntocoma); // array con los items de cada fila *
                 var objprueba = new Object();
 
@@ -300,22 +244,11 @@ function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leer
                     var valor = datos[u];
 
                     objprueba[llave] = valor;
-                    //console.log(objprueba);
-                    //console.log(llave+ ":" +valor);
                 }
                 coleccion.push(objprueba);
-
-                //console.log(filas[i]);
-                //console.log(datos);
             }
-            // console.log(cabezal);
-            //console.log(cab);
-            //console.log(cabezal);
-            // console.log(coleccion);
             funcioninyeccion(coleccion);
         }
-
-
     });
 }
 leerdatos(archivoArrendatarios, ";", cargarArrendatarios);
@@ -326,56 +259,6 @@ leerdatos(archivoInmuebles, ";", cargarInmuebles);
 
 leerdatos(archivoAlquileres, ";", cargarAlquileres);
 
-// function LeerArchivo(url, separador) {
-
-//     $.ajax({
-//         url: url,
-//         dataType: "text",
-//         success: function (data) {
-//             var lineas = data.split("\r");
-//             var cabezera = lineas[0];
-
-//             for (var i = 1; i < lineas.length; i++) {
-//                 var valores = lineas[i].split(";");
-//                 var cab = cabezera.split(";");
-
-//                 var Objeto = new object();
-
-//                 for (var j = 0; j < cab.length; j++) {
-//                     //console.log(valores[1]);
-
-//                 }
-//             }
-//         }
-//     });
-// }
-
-function consulta() {
-    console.log("--------- PROPIETARIOS ---------")
-    console.log(propietarios)
-    for (var i = 0; i < propietarios.length; i++) {
-        //console.log(propietarios[i])
-    }
-
-    console.log("--------- ARRENDATARIOS ---------")
-    console.log(arrendatarios)
-    for (var i = 0; i < arrendatarios.length; i++) {
-        //console.log(arrendatarios[i])
-    }
-
-    console.log("--------- APARTAMENTOS ---------")
-    console.log(apartamentos)
-    for (var i = 0; i < apartamentos.length; i++) {
-        //   console.log(apartamentos[i])
-    }
-
-    console.log("--------- CASAS ---------")
-    console.log(casas)
-    for (var i = 0; i < casas.length; i++) {
-        //console.log(casas[i])
-    }
-
-}
 
 var cargarPropietarios = function (lista) {
     for (var i = 0; i < lista.length; i++) {
@@ -386,17 +269,14 @@ var cargarPropietarios = function (lista) {
 }
 
 var cargarInmuebles = function (lista) {
-    // //console.log(lista);
 
     var atributos = ["id", "precio", "metros", "dormitorios", "garage", "cipropietario", "jardin"];
 
     for (var i = 0; i < lista.length; i++) {
         if (lista[i].tipo == "CASA") {
-            // //console.log(lista[i])
             var valores = [];
 
             for (var j = 0; j < atributos.length; j++) {
-                ////console.log(atributos[j] + ": " + lista[i][atributos[j]])
                 valores.push(lista[i][atributos[j]]);
             }
             var casaLinda = new Casa(...valores)
@@ -404,40 +284,3 @@ var cargarInmuebles = function (lista) {
         }
     }
 }
-};
-
-/*function cargador(url, separador, funcion) {
-    $.ajax({
-        url: url,
-        dataType: "text",
-        success: function (data) {
-            var lineas = data.split("\r");
-            var cabezera = lineas[0];
-            var col = [];
-            for (var i = 1; i < lineas.length; i++) {
-                var valores = lineas[i].split(";");
-                var cab = cabezera.split(";");
-                var Objeto = new Object();
-                for (var j = 0; j < cab.length; j++) {
-                    Objeto[cab[j]] = valores[j];
-                }
-                col.push(Objeto);
-            }
-            funcion(col);
-            // //console.log(col)
-        }
-    });
-}*/
-
-
-//cargador(archivoArrendatarios, ";", cargarArrendatarios);
-// cargador(archivoPropietarios, ";", cargarPropietarios);
-// cargador(archivoInmuebles, ";", cargarInmuebles);
-// cargador(archivoAlquileres, ";", cargarAlquileres);
-
-// LeerArchivo(archivoAlquileres, alquileres, ";", "ALQUILERES");
-// LeerArchivo(archivoArrendatarios, arrendatarios, ";");
-// LeerArchivo(archivoInmuebles, inmuebles, ";", "INMUEBLES");
-// LeerArchivo(archivoPropietarios, propietarios, ";", "PROPIETARIOS");
-
-
