@@ -69,14 +69,14 @@ function Apartamento(id, precio, metros, dormitorios, garage, anio, cipropietari
 
 
 function Alquileres(id) {
-    this.inmueble = id;
+    this.inmueble= id;
 }
 
 
 
 
 //dirección del servidor
-var urlArchivo = "http://127.0.0.1:8887/LAB1/HsH/files/";
+var urlArchivo = "files/";
 var archivoAlquileres = urlArchivo + "alquileres.csv";
 var archivoArrendatarios = urlArchivo + "arrendatarios.csv";
 var archivoInmuebles = urlArchivo + "inmuebles.csv";
@@ -170,19 +170,12 @@ function cargarAlquileres(lista) { //esta funcion cargara TODOS los alquileres y
                 // console.log(obj)
                 var alquilerLindo = new Alquileres(obj);
                 alquileres.push(alquilerLindo);
-
+        
             }
         }
-
-
-
-
-
-
-        
     }
 
-    console.log(alquileres[1].inmueble.garage)
+console.log(alquileres[1].inmueble.garage)
 
 }
 
