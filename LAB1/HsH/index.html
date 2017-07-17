@@ -5,16 +5,160 @@
     <meta charset="UTF-8">
     <title>HSH</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
 
 <body>
 
- <button onclick="consulta()"> aqui </button>
+    <!--
+    <nav class='nav navbar-default'>
+        <ul class='nav nav-tabs nav-justified'>
+            <li><a class='btn'>Alquileres</a></li>
+            <li><a class='btn'>Propietarios</a></li>
+            <li><a class='btn'>Arrendatarios</a></li>
+            <li><a class='btn'>Casas</a></li>
+            <li><a class='btn'>Apartamentos</a></li>
+        </ul>
+    </nav>
+-->
+
+
+    <div class="container-fluid contenedor">
+        <div class="col-md-4 izquierda">
+
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                                Personas
+                       </button>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+                        <div class="panel-body">
+                            <button onclick="consulta1()">Propietarios solteros de sexo femenino.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Las personas solteras que alquilaron un apartamento de más de $15000.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Arrendatarios que se les vence el alquiler en 2017.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Propietario con el alquiler más antiguo.</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                                Inmuebles
+                        </button>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <button onclick="consulta5()">Inmuebles de menos de 60 metros cuadrados con un precio mayor a $10000.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Inmueble alquilado, de más de $10000.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Inmueble alquilado, con garantia “Contaduria”.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Inmueble alquilado con mayor metraje.</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Casa alquilada de mayor precio, con garantia “Contaduria” y propietario soltero</button>
+                        </div>
+                        <div class="panel-body">
+                            <button>Apartamento alquilado, con propietario y arrendatario soltero.</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                            aria-controls="collapseFour">
+                                Generales
+                        </button>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="panel-body">
+                            <button>Alquileres</button>
+                        </div>
+                        <div class="panel-body">
+                            <button onclick="consultaPropietarios()">Propietarios</button>
+                        </div>
+                        <div class="panel-body">
+                            <button onclick="consultaArrendatarios()">Arrendatarios</button>
+                        </div>
+                        <div class="panel-body">
+                            <button onclick="consultaCasas()">Casas</button>
+                        </div>
+                        <div class="panel-body">
+                            <button onclick="consultaApartamentos()">Apartamentos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7 col-md-offset-1">
+
+
+            <table class="table">
+                <caption>Arrendatarios</caption>
+                <thead>
+                    <tr>
+                        <th>Ci</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Estado</th>
+                        <th>Sexo</th>
+                        <th>Garantìa</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+    <button onclick="consulta()"> aqui </button>
 
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/consultas.js"></script>
 
 
 </body>
