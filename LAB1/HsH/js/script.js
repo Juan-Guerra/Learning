@@ -65,12 +65,31 @@ function Apartamento(id, precio, metros, dormitorios, garage, anio, cipropietari
     this.garage = garage;
     this.anio = anio;
     this.cipropietario = cipropietario;
+    this.alquileres=alquileres;
 }
-
 
 function Alquileres(id) {
     this.inmueble = id;
 }
+
+function fechainicio(dia,mes,anio){
+		this.dia=dia;
+		this.mes=mes;
+		this.anio=anio;
+}
+
+
+
+/*function Alquileres(idinmueble;ciarrendatario;fechaInicio;fechaFin) {
+    this.inmueble = idinmueble;
+    this.ciarrendatario = ciarrendatario;
+    this.fechaInicio = fechainicio;
+    this.fechaFin = fechafin;
+    
+}*/
+
+    
+
 
 
 
@@ -91,6 +110,8 @@ var casas = [];
 var apartamentos = [];
 var arrendatarios = [];
 var propietarios = [];
+
+
 
 
 var cargarArrendatarios = function (lista) {
@@ -170,32 +191,92 @@ function cargarAlquileres(lista) { //esta funcion cargara TODOS los alquileres y
                 // console.log(obj)
                 var alquilerLindo = new Alquileres(obj);
                 alquileres.push(alquilerLindo);
-
+                    
             }
         }
 
+       // -----  COMIENZA EL "BOLAZO JUAN" ----- //
+
+    //--------- ahora ---->  { extraccion de Casas }
+
+    for (var z =0; z < lista.length; z++){
+        var idmcs = lista[z].idinmueble.split("\n");
+        var idmc = idmcs[1];
+
+        for (var h = 0; h < casas.length; h++){
+            var cas = casas[h].id;
+            if (cas == idmc) {
+                console.log(idmc);
+                var obj2 = casas[h]
+
+                var alquilerCasas = new Alquileres(obj2);
+                
+                alquileres.push(alquilerCasas);
+                
+                
+           }
+        }
+    }
+         
+        //---------ahora la CEDULA de Cada Arrendatario ----//      
+
+    for (var r = 0; r < lista.length; r++){    
+        var ceds = lista[r].ciarrendatario.split("\n");
+        var ced = ceds[1];           
+            
+            for (var e = 0 ; e < ciarrendatario.length; e++){
+                var cedula = ciarrendatario[r].id;
+                if (cedula == ceds){
+                var obj3 = ciarrendatario[e]
 
 
-
-
-
-        
+                var cedulaArrendatario = new Alquileres(obj3);
+                
+                ciarrendatario.push(cedulaArrendatario);
+                //console.log();
+                //console.log(ciarrendatario + "--- lista de cedulas de arrendatarios---");
+            }
+        }
     }
 
-    console.log(alquileres[1].inmueble.garage)
-
-}
 
 
-
-
-
+    //---- ahora FECHA-INICIO ----//
+        var dia = 
+        function fechaInicio() 
+    
 
 
 
 
+/*for (var w = 0; w < lista.length; w++){
+        var fechain = lista[w].fecha-inicio.split("\n");
+        var fechai = fechain[1];
+
+            for (var q = 0; q < fecha-inicio.length; q++){
+                var fechainc = fecha-inicio[q].id;
+                if (fechainc == fechai){
+                var obj4 = fecha-inicio[q]
+
+                var fechaInicio = [dia,mes,año];
+
+                fecha-inicio.push(fechaInicio);
+                }
+            }
+    }
+
+// ----ahora FECHA-FIN---- //
+
+    for (var y = 0; y < lista.length; y++){
+        var fechafin = lista[y].fecha-fin
+    }*/
 
 
+
+
+    //console.log(alquil)
+    //console.log(alquileres[1].inmueble.garage)
+    //console.log(alquileres[1].inmueble.jardin)
 
 function leerdatos(urlArchivo, puntocoma, funcioninyeccion) { //la funcion "leerdatos" (variable urlarchivo, punto y coma, funcion a inyectar)
     $.ajax({ //llamada a ajax
@@ -245,33 +326,6 @@ leerdatos(archivoInmuebles, ";", cargarInmuebles);
 
 leerdatos(archivoAlquileres, ";", cargarAlquileres);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function LeerArchivo(url, separador) {
 
 //     $.ajax({
@@ -295,9 +349,6 @@ leerdatos(archivoAlquileres, ";", cargarAlquileres);
 //         }
 //     });
 // }
-
-
-
 
 function consulta() {
     console.log("--------- PROPIETARIOS ---------")
@@ -326,11 +377,6 @@ function consulta() {
 
 }
 
-
-
-
-
-
 var cargarPropietarios = function (lista) {
     for (var i = 0; i < lista.length; i++) {
         var valores = Object.values(lista[i]);
@@ -338,7 +384,6 @@ var cargarPropietarios = function (lista) {
         propietarios.push(propietarioLindo);
     }
 }
-
 
 var cargarInmuebles = function (lista) {
     // //console.log(lista);
@@ -359,17 +404,7 @@ var cargarInmuebles = function (lista) {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
+};
 
 /*function cargador(url, separador, funcion) {
     $.ajax({
