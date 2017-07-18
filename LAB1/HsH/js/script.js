@@ -4,11 +4,11 @@ function Persona(ci, nombre, apellido, estado_civil, sexo) {
     this.apellido = apellido;
     this.estado_civil = estado_civil;
     this.sexo = sexo;
-}
+} 
 
 Arrendatario.prototype = new Persona();
 Arrendatario.prototype.constructor = Arrendatario;
-Arrendatario.prototype.parent = Persona.prototype;
+Arrendatario.prototype.parent = Persona.prototype; 
 function Arrendatario(ci, nombre, apellido, estado_civil, sexo, garantia) {
     this.ci = ci;
     this.nombre = nombre;
@@ -31,13 +31,16 @@ function Propietario(ci, nombre, apellido, estado_civil, sexo) {
 
 
 
-function Inmueble(id, precio, metros, dormitorios, garage, cipropietario) {
+function Inmueble(id, tipo, precio, metros, dormitorios, garage, jardin, anio, cipropietario) {
     this.id = id;
     this.precio = precio;
     this.metros = metros;
     this.dormitorios = dormitorios;
     this.garage = garage;
     this.cipropietario = cipropietario;
+    this.tipo = tipo;
+    this.jardin = jardin;
+    this.anio = anio;
 }
 
 
@@ -84,13 +87,14 @@ function Fecha(dia, mes, anio) {
 
 
 //dirección del servidor
-var urlArchivo = "http://127.0.0.1:8887/LAB1/HsH/files/";
+var urlArchivo = "./files/";
 var archivoAlquileres = urlArchivo + "alquileres.csv";
 var archivoArrendatarios = urlArchivo + "arrendatarios.csv";
 var archivoInmuebles = urlArchivo + "inmuebles.csv";
 var archivoPropietarios = urlArchivo + "propietarios.csv";
 
 
+var inmuebles = [];
 var alquileres = [];
 var casas = [];
 var apartamentos = [];
@@ -118,6 +122,12 @@ var cargarPropietarios = function (lista) {
 }
 
 var cargarInmuebles = function (lista) {
+
+    for (var i = 0; i < lista.length; i++) {
+        var valores = Object.values(lista[i]);
+        var inmuebleLindo = new Inmueble(...valores)
+        inmuebles.push(inmuebleLindo);
+    }
 
     var atributos = ["id", "precio", "metros", "dormitorios", "garage", "cipropietario", "jardin"];
 
@@ -214,7 +224,7 @@ function cargarAlquileres(lista) { //esta funcion cargara TODOS los alquileres y
         //FECHA FIN
         var fechaFea = fecF.split("/");
         var ff = new Fecha(...fechaFea);
-        
+
         datos.push(ff)
 
         var alquilerLindo = new Alquileres(...datos);
