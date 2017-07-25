@@ -1,0 +1,47 @@
+<div class="container">
+
+
+    <div class="row formulario">
+        <div class="col-md-6">
+
+            <form>
+                <div class="form-group">
+                    <h3>Nuevo Alquiler</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="comboInmueble">Inmueble</label>
+                    <select id="comboInmueble">
+                        <option value=""></option>
+                    </select>
+                    <div class="btn btn-default" onclick="cargarComboInmueble('comboInmueble')"> Cargar Inmuebles </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="comboArrendatario">Arrendatario</label>
+                    <select id="comboArrendatario">
+                        <option value=""></option>
+                    </select>
+                    <div class="btn btn-default" onclick="cargarComboArrendatarios('comboArrendatario')"> Cargar Arrendatarios </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaInicio">FechaInicio</label>
+                    <input type="date" class="form-control" id="fechaInicio" placeholder="FechaInicio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaFin">FechaFin</label>
+                    <input type="date" class="form-control" id="fechaFin" placeholder="FechaFin" required>
+                </div>
+
+
+            </form>
+
+
+            <button type="buttom" class="btn btn-primary btn-block" onclick="altaAlquiler()">Aceptar</button>
+        </div>
+
+    </div>
+</div>

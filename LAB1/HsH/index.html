@@ -24,108 +24,182 @@
 -->
 
 
+    <div class="alta-modal">
+        <div class="contenedor-modal">
+
+        </div>
+        <div class="fondo" onclick="desactivarModal()"></div>
+    </div>
+
+
+
+
+
     <div class="container-fluid contenedor">
         <div class="col-md-4 izquierda">
 
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="row">
+                <h4 class="titulos">Consultas</h4>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    
 
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOnea">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
+                        </div>
+                        <div id="collapseOnea" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOnea">
 
+                        </div>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-                    </div>
-                </div>
 
 
 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-                            aria-controls="collapseTwo">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwoa">
+                            <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwoa" aria-expanded="false"
+                                aria-controls="collapseTwoa">
                                 Personas
                        </button>
+                        </div>
+                        <div id="collapseTwoa" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoa">
+
+                            <div class="panel-body">
+                                <button onclick="consulta1()">Propietarios solteros de sexo femenino.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta2()">Las personas solteras que alquilaron un apartamento de más de $15000.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta3()">Arrendatarios que se les vence el alquiler en 2017.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta4()">Propietario con el alquiler más antiguo.</button>
+                            </div>
+
+                        </div>
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-
-                        <div class="panel-body">
-                            <button onclick="consulta1()">Propietarios solteros de sexo femenino.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta2()">Las personas solteras que alquilaron un apartamento de más de $15000.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta3()">Arrendatarios que se les vence el alquiler en 2017.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta4()">Propietario con el alquiler más antiguo.</button>
-                        </div>
-
-                    </div>
-                </div>
 
 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-                            aria-controls="collapseThree">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThreea">
+                            <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThreea"
+                                aria-expanded="false" aria-controls="collapseThreea">
                                 Inmuebles
                         </button>
+                        </div>
+                        <div id="collapseThreea" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreea">
+                            <div class="panel-body">
+                                <button onclick="consulta5()">Inmuebles de menos de 60 metros cuadrados con un precio mayor a $10000.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta6()">Inmueble alquilado, de más de $10000.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta7()">Inmueble alquilado, con garantia “Contaduria”.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta8()">Inmueble alquilado con mayor metraje.</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta9()">Casa alquilada de mayor precio, con garantia “Contaduria” y propietario soltero</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consulta10()">Apartamento alquilado, con propietario y arrendatario soltero.</button>
+                            </div>
+                        </div>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                            <button onclick="consulta5()">Inmuebles de menos de 60 metros cuadrados con un precio mayor a $10000.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta6()">Inmueble alquilado, de más de $10000.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta7()">Inmueble alquilado, con garantia “Contaduria”.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta8()">Inmueble alquilado con mayor metraje.</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta9()">Casa alquilada de mayor precio, con garantia “Contaduria” y propietario soltero</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consulta10()">Apartamento alquilado, con propietario y arrendatario soltero.</button>
-                        </div>
-                    </div>
-                </div>
 
 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFour">
-                        <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
-                            aria-controls="collapseFour">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFoura">
+                            <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFoura" aria-expanded="false"
+                                aria-controls="collapseFoura">
                                 Generales
                         </button>
+                        </div>
+                        <div id="collapseFoura" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFoura">
+                            <div class="panel-body">
+                                <button onclick="consultaAlquileres()">Alquileres</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consultaPropietarios()">Propietarios</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consultaArrendatarios()">Arrendatarios</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consultaCasas()">Casas</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="consultaApartamentos()">Apartamentos</button>
+                            </div>
+                        </div>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                        <div class="panel-body">
-                            <button onclick="consultaAlquileres()">Alquileres</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consultaPropietarios()">Propietarios</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consultaArrendatarios()">Arrendatarios</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consultaCasas()">Casas</button>
-                        </div>
-                        <div class="panel-body">
-                            <button onclick="consultaApartamentos()">Apartamentos</button>
-                        </div>
-                    </div>
+
+
                 </div>
+
+            </div>
+
+            <div class="row">
+                <h4 class="titulos">Altas</h4>
+
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOneb">
+
+                        </div>
+                        <div id="collapseOneb" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneb">
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwob">
+                            <button class="boton-izquierda btn" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwob" aria-expanded="false"
+                                aria-controls="collapseTwob">
+                                Altas
+                       </button>
+                        </div>
+                        <div id="collapseTwob" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwob">
+
+                            <div class="panel-body">
+                                <button onclick="activarModal('alquiler')">Alquileres</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="activarModal('propietarios')">Propietarios</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="activarModal('arrendatarios')">Arrendatarios</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="activarModal('casas')">Casas</button>
+                            </div>
+                            <div class="panel-body">
+                                <button onclick="activarModal('apartamentos')">Apartamentos</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
             </div>
 
         </div>
@@ -159,6 +233,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"></script>
     <script src="js/consultas.js"></script>
+    <script src="js/altas.js"></script>
 
 
 </body>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HSH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+
+<div class="container">
+
+
+    <div class="row formulario">
+        <div class="col-md-6">
+
+            <form>
+                <div class="form-group">
+                    <h3>Nueva Casa</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="text" class="form-control" id="precio" placeholder="Precio" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="metros">Metros </label>
+                    <input type="text" class="form-control" id="metros" placeholder="Metros" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dormitorios">Dormitorios </label>
+                    <input type="text" class="form-control" id="dormitorios" placeholder="Dormitorios" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="garage">Con garage?</label>
+                    <select id="garage">
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comboPropietario">Propietario</label>
+                    <select id="comboPropietario">
+                        <option value=""></option>
+                    </select>
+                    <div class="btn btn-default" onclick="cargarComboPropietario('comboPropietario')"> Cargar propietarios </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="jardin">Con Jardín?</label>
+                    <select id="jardin">
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+
+            </form>
+
+
+            <button type="buttom" class="btn btn-primary btn-block" onclick="altaCasa()">Aceptar</button>
+        </div>
+
+    </div>
+</div>
+
+<body>
+
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/consultas.js"></script>
+    <script src="js/altas.js"></script>
+
+
+</body>
+
+</html>

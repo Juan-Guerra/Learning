@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HSH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+
+<div class="container">
+
+
+    <div class="row formulario">
+        <div class="col-md-6">
+
+            <form>
+                <div class="form-group">
+                    <h3>Nuevo Arrendatario</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula">Cédula de Identidad</label>
+                    <input type="text" class="form-control" id="cedula" placeholder="Ci." required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="estadoCivil">
+                        <option value="SOLTERO">Soltero/a</option>
+                        <option value="CASADO">Casado/a</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="radio">
+                        <label>                            
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="M" checked>Masculino 
+                        </label>
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="F">Femenino
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="garantia">Garantía</label>
+                    <input type="text" class="form-control" id="garantia" placeholder="Garantía" required>
+                </div>
+
+            </form>
+
+
+            <button type="buttom" class="btn btn-primary btn-block" onclick="altaArrendatario()">Aceptar</button>
+        </div>
+
+    </div>
+</div>
+
+<body>
+
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/consultas.js"></script>
+    <script src="js/altas.js"></script>
+
+
+</body>
+
+</html>

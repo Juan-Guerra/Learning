@@ -140,7 +140,7 @@ function consulta1() {
     for (var i = 0; i < propietarios.length; i++) {
         var sexo = propietarios[i].sexo;
         var estado = propietarios[i].estado_civil;
-        if ((sexo == "M") && (estado == "SOLTERO")) {
+        if ((sexo == "F") && (estado == "SOLTERO")) {
             consulta.push(propietarios[i])
         }
     }

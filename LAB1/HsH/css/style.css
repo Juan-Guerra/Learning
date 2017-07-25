@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
 
+.radio > label{
+    margin-left: 18px !important;
+}
+.formulario{
+    margin-top: 25%;
+    transform: translateY(-50%);
+}
 
 .contenedor{
     margin-top: 75px;
@@ -25,5 +32,113 @@
 }
 
 .boton-izquierda{
-width: 100% !important;
+    width: 100% !important;
 }
+
+
+
+
+.titulos{
+    padding-left: 30px;
+    color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.activar{
+    display: inline !important;
+}
+.desactivar{
+    display: none ;
+}
+
+
+
+
+
+
+
+.activar-modal{
+    left: 50%;
+    top: 50%;
+}
+
+
+
+
+
+@keyframes contenedor-modal-s {
+    0% { left: 50%; }
+    100% { left: -50%; }
+}  
+
+
+@keyframes fondo-modal {
+    0% {opacity: 0; }
+    100% { opacity: .8; }
+}
+
+
+@keyframes contenedor-modal {
+    0% { top: -50%; }
+    50% { top: -50%; }
+    80% { top: 52%; }
+    100% { top: 50%; }
+}  
+
+
+
+
+.alta-modal{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 22;
+}
+
+.alta-modal .fondo{
+    opacity: .8;
+
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    cursor: pointer;
+    
+    animation-duration: .3s;
+    animation-name: fondo-modal;
+    z-index: 23;
+}
+
+
+
+.alta-modal .contenedor-modal{
+    position: absolute;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 24;
+
+    animation-duration: .3s;    
+    animation-name: contenedor-modal;
+}
+
+

@@ -1,14 +1,15 @@
+
 function Persona(ci, nombre, apellido, estado_civil, sexo) {
     this.ci = ci;
     this.nombre = nombre;
     this.apellido = apellido;
     this.estado_civil = estado_civil;
     this.sexo = sexo;
-} 
+}
 
 Arrendatario.prototype = new Persona();
 Arrendatario.prototype.constructor = Arrendatario;
-Arrendatario.prototype.parent = Persona.prototype; 
+Arrendatario.prototype.parent = Persona.prototype;
 function Arrendatario(ci, nombre, apellido, estado_civil, sexo, garantia) {
     this.ci = ci;
     this.nombre = nombre;
@@ -33,12 +34,13 @@ function Propietario(ci, nombre, apellido, estado_civil, sexo) {
 
 function Inmueble(id, tipo, precio, metros, dormitorios, garage, jardin, anio, cipropietario) {
     this.id = id;
+    this.tipo = tipo;
     this.precio = precio;
     this.metros = metros;
     this.dormitorios = dormitorios;
     this.garage = garage;
     this.cipropietario = cipropietario;
-    this.tipo = tipo;
+
     this.jardin = jardin;
     this.anio = anio;
 }
