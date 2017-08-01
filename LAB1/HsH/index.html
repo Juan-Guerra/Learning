@@ -11,17 +11,38 @@
 
 <body>
 
-    <!--
-    <nav class='nav navbar-default'>
-        <ul class='nav nav-tabs nav-justified'>
-            <li><a class='btn'>Alquileres</a></li>
-            <li><a class='btn'>Propietarios</a></li>
-            <li><a class='btn'>Arrendatarios</a></li> 
-            <li><a class='btn'>Casas</a></li>
-            <li><a class='btn'>Apartamentos</a></li>
-        </ul>
+
+    <div class="ingresar">
+        <div class="login">
+            <div class="contenedor-login">
+
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+
+                <label for="clave">Clave</label>
+                <input type="password" class="form-control" id="clave" placeholder="Clave" required>
+
+                <div class="form-group">
+                    <button type="buttom" class="btn btn-primary btn-block" onclick="ingresar()">Ingresar</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="fondo"></div>
+    </div>
+
+
+
+
+
+    <nav class='nav'>
+        <h3>HsH</h3>
+        <div class="Usuario">
+            <span id="usuario">Usuario</span>
+        </div>
     </nav>
--->
+
+
 
 
     <div class="alta-modal">
@@ -41,7 +62,7 @@
             <div class="row">
                 <h4 class="titulos">Consultas</h4>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    
+
 
 
                     <div class="panel panel-default">
@@ -227,13 +248,13 @@
 
 
 
-    <button onclick="consulta()"> aqui </button>
-
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"></script>
     <script src="js/consultas.js"></script>
     <script src="js/altas.js"></script>
+    <script src="js/login.js"></script>
+    
 
 
 </body>

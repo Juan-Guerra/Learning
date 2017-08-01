@@ -296,3 +296,4 @@ var cargarInmuebles = function (lista) {
         }
     }
 }
+

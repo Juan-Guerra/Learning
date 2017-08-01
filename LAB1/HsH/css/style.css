@@ -1,6 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,400,500');
+/* @import url('https://fonts.googleapis.com/css?family=Raleway:100,400,500');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700'); */
+
+
+.ingresar{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index: 40;
+
+}
+.ingresar .fondo{
+    background-color: black;
+    width:100%;
+    height:100%;
+    opacity: .8;
+    position:absolute;
+    z-index: 41;
+
+}
+.ingresar .login{
+    background-color: white;
+    width:30%;
+    height:100%;
+    left:35%;
+    position:absolute;
+    z-index: 42;
+}
+
+
+
+
+
+
+
+nav{
+    background-color: #e9e9e9;
+}
+nav > h3{
+    float: left;
+    font-size: 25px;
+    padding-left: 20px;
+}
+nav > div{
+    padding :15px;
+     float: right;
+}
+nav>div>span{
+    font-size: 17px;
+    cursor:pointer;
+}
+
+
 
 .radio > label{
     margin-left: 18px !important;
@@ -13,7 +64,19 @@
 .contenedor{
     margin-top: 75px;
 }
-.izquierda{
+.contenedor-login{
+    margin: 20px;
+    margin-top: 140px;
+}
+
+.contenedor-login > input{
+    margin-bottom: 20px;
+}
+
+select{
+    height: 33px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
 }
 .izquierda .panel-heading{
     padding: 0px !important;    
@@ -30,31 +93,13 @@
     text-align: left;
 
 }
-
 .boton-izquierda{
     width: 100% !important;
 }
-
-
-
-
 .titulos{
     padding-left: 30px;
     color: gray;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .activar{
     display: inline !important;
@@ -63,17 +108,10 @@
     display: none ;
 }
 
-
-
-
-
-
-
 .activar-modal{
     left: 50%;
     top: 50%;
 }
-
 
 
 
