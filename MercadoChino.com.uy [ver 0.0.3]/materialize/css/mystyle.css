@@ -1,0 +1,154 @@
+  body {
+      background-color: #757575;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+
+
+
+   .btn{
+    background-color: #880e4f !important;
+    box-shadow: 5px 5px 10px black !important;
+    }
+
+
+
+    h4{ color: #880e4f !important;
+      font-weight: bold !important;
+      text-shadow: 1px 2px 3px black !important;
+    }
+
+    .parallax-container{
+            height:600};
+
+
+    .mislide1{
+      color: blue;
+      font-size: 500%;
+      font-weight: bold;
+      text-shadow: 1px 2px 5px black;
+    }
+
+    .mislide1a{
+      color: #ffffff;
+  ;
+      font-size: 600%;
+      font-weight: bold;
+      text-shadow: 1px 2px 5px black;
+    }
+    .mislide2{
+      color: #ff0066;
+      font-size: 300%;
+      font-weight: bold;
+      text-shadow: 1px 2px 5px black;
+    }
+
+  .oferta1{
+    font-size:600%;
+      font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 2px 5px black;
+
+  }
+  .oferta2{
+    color: #ff0066;
+    font-size: 800%;
+      font-weight: bold;
+      text-shadow: 5px 5px 5px black !important;
+  }
+
+  .oferta3{
+    font-size:1000%;
+      font-weight: bold;
+    color: #66ff99;
+    text-shadow: 1px 2px 5px black;}
+
+
+
+     main {
+      flex: 1 0 auto;
+    }
+
+
+
+    h5{  color: #ff0066 !important;
+      font-size: 120%;      
+      text-shadow: 5px 2px 5px black;
+      }
+
+  .header{
+        font-weight: bold !important;
+        background-color: black !important;
+        font-size: 400%;
+        text-shadow: 1px 2px 5px black;
+
+      }
+  .material-icons{ cursor: pointer;
+                   font-size:250% !important;
+                   text-shadow: 8px 10px 10px #263238 !important;
+                   color: #ff0066;
+
+
+  }
+
+
+  .card-title{
+            color: #ff0066 !important;
+            font-weight: bold !important;
+
+            text-shadow: 5px 5px 5px black;
+  }
+
+
+
+  h1{
+    font-weight: bold;
+    color: #ff0066 !important;
+    text-shadow: 3px 3px 3px black;
+
+  }
+
+  h2 {font-weight: bold;
+      color: #ff0066 !important;
+    text-shadow: 3px 3px 3px black;}
+
+      .brand-logo{ color: #ff0066 !important;}
+
+  .card { background-color:  #b0bec5 !important;
+          box-shadow: 5px 10px 10px !important;}
+
+
+  .card-panel{
+    background-color:#2e051b !important;
+    box-shadow: 5px 8px 10px #17020d !important;
+  }
+  .card-content{
+    background-color: #8c8c8c  !important; 
+  }
+
+  h3 {
+    color: blueviolet !important;
+    text-shadow: 1px 1px 1px black !important;}
+
+   .mercado{ color: #ffffff;
+    font-size: 1100%;
+      font-weight: bold;
+      text-shadow: 5px 5px 5px black !important;}
+
+  .precio{ color: #66ffcc;
+          text-shadow: 2px 2px 2px black;
+          font-size: 300%;
+          }
+
+  .divider{ background-color:#00997a !important;}
+
+      .footer-copyright{background-color: black;
+                        padding: 20px !important;
+                                      }
+
+        .card-action{background-color: black !important;
+                      }
+
+                      .input-field{ color:#ff0066; }
